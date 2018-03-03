@@ -1,3 +1,11 @@
+//链表节点
+class ListNode{
+    constructor(value=null){
+        this.value = value;
+        this.next = null;
+    }
+}
+
 function find(target,array){
     //array 二维数组
     let h = array.length;
@@ -15,27 +23,6 @@ function find(target,array){
     }
 }
 
-// console.log("hhh");
-// console.log(find(7,[[1,2,8,9],[2,4,9,12],[4,7,10,13],[6,8,11,15]]));
-
-// function replaceBlank(arr){
-//     let count=0;
-//     arr.forEach(element => {
-//         element==' '?count++:null;
-//     });
-//     console.log(count);
-
-// }
-
-// console.log(replaceBlank(['h','e','l',' ',',','o','e',' ','w','o']));
-
-class ListNode{
-    constructor(value=null){
-        this.value = value;
-        this.next = null;
-    }
-}
-
 function arrayToList(arr){
     let dumHead = new ListNode();
     let p = dumHead;
@@ -48,10 +35,11 @@ function arrayToList(arr){
 }
 
 let pList = arrayToList([1,2,3,4,5]);
-console.log("list=>",pList);
-reverseList(pList);
 
-//从尾到头输出链表
+//reverseList(pList);
+recurReverse(pList);
+
+//从尾到头输出链表 栈
 function reverseList(pHead){
     let stack = [];
     let p = pHead;
@@ -62,5 +50,19 @@ function reverseList(pHead){
     console.log("stack=>",stack);
     for(let i=0;i<stack.length;i++){
         console.log(stack[i]);
+    }
+}
+
+
+//从尾到头输出链表 递归
+function recurReverse(pHead){
+    if(pHead!=null){
+        if(pHead.next==null){
+            console.log("recursive=>",pHead.value);
+            return ;
+        }else{
+            recurReverse(pHead.next);
+            console.log("recursive=>",pHead.value);
+        }
     }
 }

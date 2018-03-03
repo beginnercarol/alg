@@ -48,17 +48,18 @@ function arrayToList(arr){
 }
 
 let pList = arrayToList([1,2,3,4,5]);
-
+console.log("list=>",pList);
 reverseList(pList);
 
 //从尾到头输出链表
 function reverseList(pHead){
     let stack = [];
     let p = pHead;
-    while(p.next != null){
-        stack.shift(p.value);
+    while(p!= null){
+        stack.unshift(p.value);
         p=p.next;
     }
+    console.log("stack=>",stack);
     for(let i=0;i<stack.length;i++){
         console.log(stack[i]);
     }

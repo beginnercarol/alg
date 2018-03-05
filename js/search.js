@@ -192,3 +192,6 @@ function findMaxPath(arr=[[]]){
         }
     }
 }
+
+
+//after stash modification disappeared
